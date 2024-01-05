@@ -1,0 +1,41 @@
+﻿@page
+@model Aangeleverd.Pages.BeheerModel
+@using Aangeleverd.Models
+@{
+    ViewData["Title"] = "Beheer";
+}
+
+<div class="flex mt-24 px-12 justify-center items-center pb-24">
+    <div class="container mx-auto">
+        <div class="p-4 rounded shadow flex flex-col justify-center">
+            <p><a href="/Insert" class="text-blue-500">Nieuw Product Invoeren</a></p>
+            <table class="border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 p-2">Artikelnummer</th>
+                        <th class="border border-gray-300 p-2">Naam</th>
+                        <th class="border border-gray-300 p-2">Prijs</th>
+                        <th class="border border-gray-300 p-2">Afbeelding</th>
+                        <th class="border border-gray-300 p-2">Bestel</th>
+                        <th class="border border-gray-300 p-2">Update</th>
+                        <th class="border border-gray-300 p-2">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product shirt in Model.shirts)
+                    {
+                        <tr>
+                            <td class="border border-gray-300 p-2">@shirt.artikelNummer</td>
+                            <td class="border border-gray-300 p-2">@shirt.artikelNaam</td>
+                            <td class="border border-gray-300 p-2">€@shirt.artikelPrijs</td>
+                            <td class="border border-gray-300 p-2"><img src="Images\@shirt.artikelAfbeelding" width="50" height="50" /></td>
+                            <td class="border border-gray-300 p-2"><a href="/Bestel?artikelnummer=@shirt.artikelNummer" class="text-blue-500">Bestel</a></td>
+                            <td class="border border-gray-300 p-2"><a href="/Update?updateArtikel=@shirt.artikelNummer" class="text-blue-500">Update</a></td>
+                            <td class="border border-gray-300 p-2"><a href="/Delete?deleteArtikel=@shirt.artikelNummer" class="text-blue-500">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

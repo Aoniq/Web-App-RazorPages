@@ -1,0 +1,60 @@
+﻿@page
+@using Aangeleverd.Models
+@model Aangeleverd.Pages.BestelModel
+@{
+    ViewData["Title"] = "Bestel";
+}
+
+<div class="flex w-full mt-24 px-12 justify-center">
+    <div class="container mx-auto">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 grid-rows-2">
+            <div class="flex flex-col">
+                <h3 class="text-2xl font-bold">@Model.product.artikelNaam</h3>
+                <p class="text-lg font-semibold">prijs: €@Model.product.artikelPrijs</p>
+
+                <img src='Images\@Model.product.artikelAfbeelding' class="w-full h-96 object-contain mix-blend-multiply" />
+            </div>
+            <div>
+                <form method="post">
+                    <input type="hidden" name="artikelnummer" value="@Model.artikelnummer" />
+                    <p class="mb-4">
+                        <label asp-for="Naam"></label>
+                        <input asp-for="Naam" class="border-2 border-black p-2 rounded" type="text" />
+                        <span asp-validation-for="Naam" class="text-red-500 font-medium"></span>
+                    </p>
+                    <p class="mb-4">
+                        <label asp-for="Adres"></label>
+                        <input asp-for="Adres" class="border-2 border-black p-2 rounded" type="text" />
+                        <span asp-validation-for="Adres" class="text-red-500 font-medium"></span>
+                    </p>
+                    <p class="mb-4">
+                        <label asp-for="Woonplaats"></label>
+                        <input asp-for="Woonplaats" class="border-2 border-black p-2 rounded" type="text" />
+                        <span asp-validation-for="Woonplaats" class="text-red-500 font-medium"></span>
+                    </p>
+                    <p class="mb-4">
+                        <label asp-for="Maat"></label>
+                        <select asp-for="Maat" class="border-2 border-black p-2 rounded">
+                            <option value="">Selecteer Maat</option>
+                            @foreach (var value in Enum.GetValues(typeof(Maat)))
+                            {
+                                <option value="@value">@value</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Maat" class="text-red-500 font-medium"></span>
+
+                    </p>
+                    
+
+
+                    <p class="mb-4">
+                        <button type="submit" class="inline-flex items-center justify-center px-5 py-2 text-base font-medium text-center bg-gray-950 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Bestel</button>
+                    </p>
+                </form>
+            </div>
+            <div>
+            </div>
+        </div>
+        </div>
+</div>

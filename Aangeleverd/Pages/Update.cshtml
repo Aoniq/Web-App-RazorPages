@@ -1,0 +1,35 @@
+﻿@page
+@model Aangeleverd.Pages.UpdateModel
+@{
+}
+<div class="flex w-full mt-24 px-12 justify-center">
+    <div class="container mx-auto">
+<h3 class="font-bold text-xl">Update van een Product:</h3>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="@Model.Product.artikelNummer" />
+
+    <p class="mt-4">
+        <label asp-for="@Model.Product.artikelNaam"></label>
+        <input class="rounded border-black border-2 p-2" asp-for="@Model.Product.artikelNaam" value="@Model.Product.artikelNaam" type="text" />
+                <span asp-validation-for="@Model.Product.artikelNaam" class="text-red-500 font-medium"></span>
+    </p>
+            <p class="mt-4">
+        <label asp-for="@Model.Product.artikelPrijs"></label>
+                <input class="rounded border-black border-2 p-2" asp-for="@Model.Product.artikelPrijs" value="@Model.Product.artikelPrijs" type="number" step="0.01" />
+                <span asp-validation-for="@Model.Product.artikelPrijs" class="text-red-500 font-medium"></span>
+    </p>
+            <p class="mt-4">
+        <img class="w-full h-24" src='Images\@Model.Product.artikelAfbeelding' />
+        <label asp-for="@Model.Product.artikelAfbeelding"></label>
+    </p>
+            <p class="mt-4">
+        <input asp-for="Upload" type="file" />
+        <span asp-validation-for="Upload" class="text-red-500 font-medium"></span>
+    </p>
+    <p>
+        <button type="submit" class="mt-4 inline-flex items-center justify-center px-5 py-2 text-base font-medium text-center bg-gray-950 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Verzenden</button>
+    </p>
+</form>
+</div>
+</div>

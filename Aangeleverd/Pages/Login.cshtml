@@ -1,0 +1,30 @@
+﻿@page
+@model Aangeleverd.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="flex mt-24 px-12 justify-center items-center">
+    <div class="container mx-auto max-w-md">
+        <div class="p-4 rounded shadow">
+            <p class="text-xl font-bold">Log in om te bestellen</p>
+            <form method="post">
+                <div class="max-w-md mx-auto">
+                    <p class="mt-4">
+                        <label asp-for="gebruikersnaam"></label>
+                        <input asp-for="gebruikersnaam" class="border border-gray-200 border-2 rounded p-2 w-full" />
+                        <span asp-validation-for="gebruikersnaam"></span>
+                    </p>
+                    <p class="mt-4">
+                        <label asp-for="wachtwoord"></label>
+                        <input asp-for="wachtwoord" type="password" class="border border-gray-200 border-2 rounded p-2 w-full" />
+                        <span asp-validation-for="wachtwoord" class="text-red-500 font-medium"></span>
+                    </p>
+                        <button type="submit" class="mt-4 inline-flex items-center justify-center px-5 py-2 text-base font-medium text-center bg-gray-950 text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                            Log in
+                        </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
