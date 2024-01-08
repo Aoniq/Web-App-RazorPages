@@ -21,9 +21,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: NPM
-      run: npm install
+      run: cd ./Aangeleverd && npm install
     - name: Tailwinds
-      run: npm run build
+      run: npx tailwindcss -i ./Aangeleverd/wwwroot/css/site.css -o ./Aangeleverd/wwwroot/css/output.css
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
